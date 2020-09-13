@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        margin: 0px;
+        background-color: black;
+        color: white;
+      }
+      .container {
+        padding-top: 100px;
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+      }
+      .convert {
+        text-align: center;
+        margin: 30px 350px;
+        padding: 10px;
+      }
+      #inlabel,
+      #input,
+      .convert,
+      #reset {
+        font-size: xx-large;
+        font: bold;
+        font-weight: bolder;
+      }
+      #ans {
+        font-size: xx-large;
+        font-size: 80px;
+        font-weight: bolder;
+        text-align: center;
+        color: aqua;
+      }
+      .heading {
+        text-align: center;
+        font-size: xx-large;
+        font-size: 80px;
+        font-weight: bolder;
+      }
+      #reset,
+      .convert {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+    </style>
+
+    <title>Converter</title>
+  </head>
+  <body>
+    <h1 class="heading">
+      Memory Converter
+    </h1>
+    <div class="container">
+      <div class="body">
+        <label for="input" id="inlabel">
+          Enter Memory In Bytes
+        </label>
+        <input type="number" id="input" pattern="[0-9]" />
+        <button id="reset" onclick="reset()">Reset</button>
+        <br />
+        <button class="convert" onclick="convert()">convert to GB</button>
+        <h2 id="ans"></h2>
+      </div>
+    </div>
+    <script>
+      function convert() {
+        let byte = document.getElementById("input").value;
+
+        document.getElementById("ans").innerHTML =
+          byte / Math.pow(10, 9) + " " + "GB";
+      }
+
+      function reset() {
+        document.getElementById("input").value = "";
+      }
+    </script>
+  </body>
+</html>
